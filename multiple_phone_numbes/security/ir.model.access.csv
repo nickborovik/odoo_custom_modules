@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_phone_phone_all,access.phone.phone.all,model_phone_phone,,0,0,0,0
+access_phone_phone_portal,access.phone.phone.portal,model_phone_phone,base.group_portal,1,0,0,0
+access_phone_phone_user,access.phone.phone.user,model_phone_phone,base.group_user,1,1,1,0
+access_phone_phone_system,access.phone.phone.system,model_phone_phone,base.group_system,1,1,1,1
