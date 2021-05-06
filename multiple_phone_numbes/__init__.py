@@ -18,6 +18,6 @@ def _copy_mobile_and_phone_numbers(cr, registry):
             vals.append({'number': partner.phone, 'title': 'phone', 'partner_id': partner.id})
         if partner.mobile:
             vals.append({'number': partner.mobile, 'title': 'mobile', 'partner_id': partner.id})
-        if vals:
-            Phone.create(vals)
-    _logger.info('Records created')
+    if vals:
+        phones = Phone.create(vals)
+    _logger.info('%s records created' % len(phones))

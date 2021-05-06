@@ -8,7 +8,6 @@ class Phone(models.Model):
 
     title = fields.Char(string='Title')
     number = fields.Char(string='Number', required=True)
-
     partner_id = fields.Many2one('res.partner', readonly=False, ondelete='cascade')
 
     def name_get(self):
