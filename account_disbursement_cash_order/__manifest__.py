@@ -1,0 +1,20 @@
+{
+    'name': 'Account Disbursement Cash Order',
+    'summary': 'Use disbursement cash order for cash operations',
+    'author': 'Mykyta Borovyk',
+    'support': 'nick.borovik@gmail.com',
+    'license': 'LGPL-3',
+    'category': 'Accounting/Accounting',
+    'version': '1.2',
+    'depends': ['account', 'hr'],
+    'data': [
+        'data/paperformat_data.xml',
+        'report/report_disbursement_cash_order.xml',
+        'views/account_move_views.xml',
+        'views/hr_employee_views.xml',
+        'views/res_config_settings_views.xml',
+    ],
+    'auto_install': False,
+    'installable': True,
+    'application': False,
+}

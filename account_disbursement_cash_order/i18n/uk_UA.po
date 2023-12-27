@@ -1,0 +1,323 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_disbursement_cash_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20221116\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 12:06+0000\n"
+"PO-Revision-Date: 2023-09-02 12:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_disbursement_cash_order
+#: model:ir.actions.report,print_report_name:account_disbursement_cash_order.action_report_disbursement_cash_order
+msgid "'DCO - %s' % object.name.replace('/', '')"
+msgstr "'ВКО - %s' % object.name.replace('/', '')"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Значення вказані тут є "
+"залежнівід компанії.\" aria-label=\"Значення вказані тут є залежні від "
+"компанії\" groups=\"base.group_multi_company\" role=\"img\"/>"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>(пункт 26 розділу III)</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Ідентифікаційний код в Єдиному державному</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Видав касир</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Видати</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Головний бухгалтер:</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Дата складання</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Додаток:</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>За</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Керівник:</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Код аналітичного рахунку</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Код цільового призначення</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Кореспондуючий рахунок, субрахунок</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Номер документа</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Одержав</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Підпис одержувача</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Підстава</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Сума</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>Типова форма № КО-2</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>до Положення про ведення касових</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>операцій у національній валюті в Україні</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>реєстрі підприємств і організацій України</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>року</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<span>№ з/п</span>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<strong>Додаток 3</strong>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<sub>(найменування підприємства / установи / організації)</sub>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid ""
+"<sub>(найменування, номер, дата та місце видачі документа, який засвідчує "
+"особу одержувача)</sub>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<sub>(прізвище, імʼя, по батькові)</sub>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<sub>(підпис, прізвище, ініціали)</sub>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "<sub>(словами)</sub>"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_bank_statement_line__accountant_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_move__accountant_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_payment__accountant_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_company__accountant_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_config_settings__accountant_id
+msgid "Accountant"
+msgstr "Бухгалтер"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.view_move_form
+msgid "Cash Order"
+msgstr "Касовий ордер"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_bank_statement_line__cash_order_date
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_move__cash_order_date
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_payment__cash_order_date
+msgid "Cash Order Date"
+msgstr "Дата ордеру"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_bank_statement_line__cash_order_partner_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_move__cash_order_partner_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_payment__cash_order_partner_id
+msgid "Cash Order Partner"
+msgstr "Ордер на особу"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_bank_statement_line__cashier_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_move__cashier_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_payment__cashier_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_company__cashier_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_config_settings__cashier_id
+msgid "Cashier"
+msgstr "Касир"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model,name:account_disbursement_cash_order.model_res_company
+msgid "Companies"
+msgstr "Компанії"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model,name:account_disbursement_cash_order.model_res_config_settings
+msgid "Config Settings"
+msgstr "Налаштування"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model,name:account_disbursement_cash_order.model_res_currency
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_currency__currency_subunit_label
+msgid "Currency Subunit"
+msgstr "Субодиниця валюти"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,help:account_disbursement_cash_order.field_res_currency__currency_subunit_label
+msgid "Currency Subunit Name"
+msgstr "Назва субодиниці валюти"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_currency__currency_unit_label
+msgid "Currency Unit"
+msgstr "Одиниця валюти"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,help:account_disbursement_cash_order.field_res_currency__currency_unit_label
+msgid "Currency Unit Name"
+msgstr "Назва одиниці валюти"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.res_config_settings_view_form
+msgid "Default accountant set on disbursement cash orders"
+msgstr "Бухгалтер за змовчуванням для касових ордерів"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.res_config_settings_view_form
+msgid "Default cashier set on disbursement cash orders"
+msgstr "Касир за змовчуванням для касових ордерів"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.res_config_settings_view_form
+msgid "Default director set on disbursement cash orders"
+msgstr "Керівник за змовчуванням для касових ордерів"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_bank_statement_line__director_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_move__director_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_payment__director_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_company__director_id
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_res_config_settings__director_id
+msgid "Director"
+msgstr "Керівник"
+
+#. module: account_disbursement_cash_order
+#: model:ir.actions.report,name:account_disbursement_cash_order.action_report_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.res_config_settings_view_form
+msgid "Disbursement Cash Order"
+msgstr "Видатковий касовий ордер"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model,name:account_disbursement_cash_order.model_hr_employee
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_hr_employee__initials
+msgid "Initials"
+msgstr "Ініціали"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model,name:account_disbursement_cash_order.model_account_move
+msgid "Journal Entry"
+msgstr "Запис у журналі"
+
+#. module: account_disbursement_cash_order
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_bank_statement_line__service_name
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_move__service_name
+#: model:ir.model.fields,field_description:account_disbursement_cash_order.field_account_payment__service_name
+msgid "Service Name"
+msgstr "Підстава"
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "Видатковий касовий ордер"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "від «"
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "грн."
+msgstr ""
+
+#. module: account_disbursement_cash_order
+#: model_terms:ir.ui.view,arch_db:account_disbursement_cash_order.report_disbursement_cash_order_document
+msgid "коп."
+msgstr ""

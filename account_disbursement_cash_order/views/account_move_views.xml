@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_move_form" model="ir.ui.view">
+    <field name="name">account.move.form</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_move_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+            <page string="Cash Order" name="cash_order" attrs="{'invisible': [('move_type', '=', 'entry')]}">
+                <group>
+                    <group>
+                        <field name="cash_order_partner_id"/>
+                        <field name="director_id"/>
+                        <field name="accountant_id"/>
+                        <field name="cashier_id"/>
+                    </group>
+                    <group>
+                        <field name="cash_order_date"/>
+                        <field name="service_name"/>
+                    </group>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

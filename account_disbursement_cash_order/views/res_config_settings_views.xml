@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="res_config_settings_view_form" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@data-key='account']" position="inside">
+            <h2>Disbursement Cash Order</h2>
+            <div class="row mt16 o_settings_container" name="disbursement_cash_order">
+                <div class="col-12 col-lg-6 o_setting_box" name="director_id">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <label for="director_id"/>
+                        <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                        <div class="text-muted">
+                            Default director set on disbursement cash orders
+                        </div>
+                        <div class="text-muted">
+                            <field name="director_id"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box" name="accountant_id">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <label for="accountant_id"/>
+                        <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                        <div class="text-muted">
+                            Default accountant set on disbursement cash orders
+                        </div>
+                        <div class="text-muted">
+                            <field name="accountant_id"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box" name="cashier_id">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <label for="cashier_id"/>
+                        <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                        <div class="text-muted">
+                            Default cashier set on disbursement cash orders
+                        </div>
+                        <div class="text-muted">
+                            <field name="cashier_id"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

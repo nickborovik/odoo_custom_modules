@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_disbursement_cash_order_document">
+<t t-set="o" t-value="o.with_context(lang=lang)"/>
+<t t-call="web.basic_layout">
+<div class="page" style="font-size: 12px;">
+    <div class="row" name="right_corner_title" style="font-size: 8px;">
+        <div class="offset-8 col-4">
+            <div class="row">
+                <div class="col-12">
+                    <strong>Додаток 3</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>до Положення про ведення касових</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>операцій у національній валюті в Україні</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>(пункт 26 розділу III)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" name="company_information">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-12 text-center" style="font-size: 13px;">
+                    <strong t-field="o.company_id"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="border-bottom: 1px solid black;"/>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <sub>(найменування підприємства / установи / організації)</sub>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-5">
+            <div class="row">
+                <div class="col-12">
+                    <span>&#160;</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>Ідентифікаційний код в Єдиному державному</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>реєстрі підприємств і організацій України</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 text-center">
+            <div class="row">
+                <div class="col-12">
+                    <span>Типова форма № КО-2</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span t-field="o.company_id.company_registry"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="border-bottom: 1px solid black;"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" name="header">
+        <div class="col-12 text-center">
+            <h4 class="text-uppercase">Видатковий касовий ордер</h4>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12 text-center">
+            <span class="mr-1">від «<u t-field="o.cash_order_date" t-options="{'widget': 'date', 'format': 'dd'}"/>»</span>
+            <u class="mr-1" t-field="o.cash_order_date" t-options="{'widget': 'date', 'format': 'MMMM'}"/>
+            <span class="mr-1" t-field="o.cash_order_date" t-options="{'widget': 'date', 'format': 'YYYY'}"/>
+            <span>року</span>
+        </div>
+    </div>
+
+    <table class="mb-1 w-100" style="border: 1px solid black;">
+        <thead style="border: 1px solid black;">
+            <tr class="text-center" style="border: 1px solid black;">
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>№ з/п</span></th>
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>Номер документа</span></th>
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>Дата складання</span></th>
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>Кореспондуючий рахунок, субрахунок</span></th>
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>Код аналітичного рахунку</span></th>
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>Сума</span></th>
+                <th class="align-middle px-2" style="border: 1px solid black;"><span>Код цільового призначення</span></th>
+            </tr>
+        </thead>
+        <tbody style="border: 1px solid black;">
+            <tr class="text-center" style="border: 1px solid black;">
+                <td t-foreach="range(1, 8)" t-as="j" style="border: 1px solid black;">
+                    <span t-esc="j"/>
+                </td>
+            </tr>
+            <tr class="text-center" style="border: 1px solid black;">
+                <td class="align-middle px-2" style="border: 1px solid black;"><span t-esc="1"/></td>
+                <td class="align-middle px-2" style="border: 1px solid black;"><span t-field="o.name"/></td>
+                <td class="align-middle px-2" style="border: 1px solid black;"><span t-field="o.invoice_date" t-options="{'widget': 'date', 'format': 'dd.MM.YYYY'}"/></td>
+                <td class="align-middle px-2" style="border: 1px solid black;"></td>
+                <td class="align-middle px-2" style="border: 1px solid black;"><span t-field="o.line_ids[:1].analytic_account_id.code"/></td>
+                <td class="align-middle px-2" style="border: 1px solid black;"><span t-field="o.amount_total"/></td>
+                <td class="align-middle px-2" style="border: 1px solid black;"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row mb-1">
+        <div class="col-2">
+            <span>Видати</span>
+        </div>
+        <div class="col-10 text-center">
+            <div class="row">
+                <div class="col-12" style="border-bottom: 1px solid black;">
+                    <strong t-field="o.cash_order_partner_id"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <sub>(прізвище, імʼя, по батькові)</sub>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <span>Підстава</span>
+        </div>
+        <div class="col-10 text-center" style="border-bottom: 1px solid black;">
+            <strong t-esc="o.service_name or ''"/>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-1"><span>Сума</span></div>
+                <div class="col-11" style="border-bottom: 1px solid black;"/>
+            </div>
+            <div class="row">
+                <div class="col-1 text-center"/>
+                <div class="col-9 text-center" style="border-bottom: 1px solid black;">
+                    <span t-esc="o.currency_id.amount_to_text(int(o.amount_total))"/>
+                </div>
+                <div class="col-2 text-right">
+                    <span>грн. <u class="mx-3" t-esc="o._get_coins_total()"/> коп.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <sub>(словами)</sub>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-2"><span>Додаток:</span></div>
+                <div class="col-10" style="border-bottom: 1px solid black;"/>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>&#160;</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"/>
+                <div class="col-11" style="border-bottom: 1px solid black;"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-2"><span>Керівник:</span></div>
+                <div class="col-4" style="border-bottom: 1px solid black;">
+                    <span t-field="o.director_id.initials"/>
+                </div>
+                <div class="col-3"><span>Головний бухгалтер:</span></div>
+                <div class="col-3" style="border-bottom: 1px solid black;">
+                    <span t-field="o.accountant_id.initials"/>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="offset-2 col-4">
+                    <sub>(підпис, прізвище, ініціали)</sub>
+                </div>
+                <div class="offset-3 col-3">
+                    <sub>(підпис, прізвище, ініціали)</sub>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-2 text-left"><span>Одержав</span></div>
+                <div class="col-8 text-center" style="border-bottom: 1px solid black;">
+                    <span t-esc="o.currency_id.amount_to_text(int(o.amount_total))"/>
+                </div>
+                <div class="col-2 text-right">
+                    <span>грн. <u class="mx-3" t-esc="o._get_coins_total()"/> коп.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <sub>(словами)</sub>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-3">
+            <span class="mr-1">«<u t-field="o.cash_order_date" t-options="{'widget': 'date', 'format': 'dd'}"/>»</span>
+            <u class="mr-1" t-field="o.cash_order_date" t-options="{'widget': 'date', 'format': 'MMMM'}"/>
+            <span class="mr-1" t-field="o.cash_order_date" t-options="{'widget': 'date', 'format': 'YYYY'}"/>
+            <span>року</span>
+        </div>
+        <div class="offset-3 col-3">
+            <span>Підпис одержувача</span>
+        </div>
+        <div class="col-3" style="border-bottom: 1px solid black;"/>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-1"><span>За</span></div>
+                <div class="col-11" style="border-bottom: 1px solid black;"/>
+            </div>
+            <div class="row text-center mb-4">
+                <div class="col-12">
+                    <sub>(найменування, номер, дата та місце видачі документа, який засвідчує особу одержувача)</sub>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"/>
+                <div class="col-11" style="border-bottom: 1px solid black;"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                    <span>Видав касир</span>
+                </div>
+                <div class="col-6" style="border-bottom: 1px solid black;">
+                    <span t-field="o.cashier_id.initials"/>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="offset-6 col-6">
+                    <sub>(підпис, прізвище, ініціали)</sub>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</t>
+</template>
+
+<template id="report_disbursement_cash_order">
+<t t-call="web.html_container">
+    <t t-foreach="docs" t-as="o">
+        <t t-set="lang" t-value="o.partner_id.lang"/>
+        <t t-call="account_disbursement_cash_order.report_disbursement_cash_order_document" t-lang="lang"/>
+    </t>
+</t>
+</template>
+
+<record id="action_report_disbursement_cash_order" model="ir.actions.report">
+    <field name="name">Disbursement Cash Order</field>
+    <field name="model">account.move</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">account_disbursement_cash_order.report_disbursement_cash_order</field>
+    <field name="report_file">account_disbursement_cash_order.report_disbursement_cash_order</field>
+    <field name="print_report_name">'DCO - %s' % object.name.replace('/', '')</field>
+    <field name="attachment">'DCO - %s' % object.name.replace('/', '') + '.pdf'</field>
+    <field name="binding_model_id" ref="account.model_account_move"/>
+    <field name="paperformat_id" ref="account_disbursement_cash_order.paperformat_disbursement_cash_order"/>
+    <field name="binding_type">report</field>
+</record>
+
+</odoo>
