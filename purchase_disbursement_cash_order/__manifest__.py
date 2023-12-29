@@ -5,7 +5,7 @@
     'support': 'nick.borovik@gmail.com',
     'license': 'LGPL-3',
     'category': 'Inventory/Purchase',
-    'version': '1.1',
+    'version': '15.0.1.1',
     'depends': ['purchase', 'account_disbursement_cash_order'],
     'auto_install': True,
     'installable': True,
