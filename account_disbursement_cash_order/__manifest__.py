@@ -5,7 +5,7 @@
     'support': 'nick.borovik@gmail.com',
     'license': 'LGPL-3',
     'category': 'Accounting/Accounting',
-    'version': '1.2',
+    'version': '15.0.1.2',
     'depends': ['account', 'hr'],
     'data': [
         'data/paperformat_data.xml',
