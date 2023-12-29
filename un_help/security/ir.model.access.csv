@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_un_help_public","un_help group_public","model_un_help","base.group_public",1,1,1,0
+"access_un_help_portal","un_help group_portal","model_un_help","base.group_portal",1,0,0,0
+"access_un_help_group_partner_manager","un_help group_partner_manager","model_un_help","base.group_partner_manager",1,1,1,1
+"access_un_box_public","un_box group_public","model_un_box","base.group_public",1,1,1,0
+"access_un_box_portal","un_box group_portal","model_un_box","base.group_portal",1,0,0,0
+"access_un_box_group_partner_manager","un_box group_partner_manager","model_un_box","base.group_partner_manager",1,1,1,1
+"access_receive_un_box_public","receive_un_box group_public","model_receive_un_box","base.group_public",1,1,1,0
+"access_receive_un_box_portal","receive_un_box group_portal","model_receive_un_box","base.group_portal",1,0,0,0
+"access_receive_un_box_group_partner_manager","receive_un_box group_partner_manager","model_receive_un_box","base.group_partner_manager",1,1,1,1

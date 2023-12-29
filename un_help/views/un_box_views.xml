@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_un_box_tree" model="ir.ui.view">
+    <field name="name">un.box.tree</field>
+    <field name="model">un.box</field>
+    <field eval="8" name="priority"/>
+    <field name="arch" type="xml">
+        <tree string="UN Box" sample="1" multi_edit="1">
+            <field name="name"/>
+            <field name="un_help_id"/>
+            <field name="partner_id"/>
+            <field name="date_received"/>
+            <field name="state"/>
+            <field name="company_id" optional="hide"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_un_box_form" model="ir.ui.view">
+    <field name="name">un.box.form</field>
+    <field name="model">un.box</field>
+    <field eval="8" name="priority"/>
+    <field name="arch" type="xml">
+        <form string="UN Box">
+            <header>
+                <button name="button_draft" states="to_consume,used,scrap" string="Reset to Draft" type="object" class="oe_highlight" data-hotkey="d"/>
+                <button name="button_to_consume" states="draft" string="Allow to Consume" type="object" class="oe_highlight" data-hotkey="c"/>
+                <button name="button_use" states="to_consume" string="Use" type="object" class="oe_highlight" data-hotkey="u"/>
+                <button name="button_scrap" states="draft,to_consume,used" string="Scrap" type="object" class="oe_highlight" data-hotkey="s"/>
+                <button name="button_lock" states="used" string="Lock" type="object" class="oe_highlight" data-hotkey="l"/>
+                <button name="button_unlock" states="locked" string="Unlock" type="object" class="oe_highlight" data-hotkey="b"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,to_consume,used" readonly="1"/>
+            </header>
+            <sheet>
+                <h1>
+                    <field class="o_text_overflow" name="name" default_focus="1"/>
+                </h1>
+                <group>
+                    <group>
+                        <field name="un_help_id"/>
+                        <field name="partner_id"/>
+                        <field name="date_received"/>
+                        <field name="company_id" groups="base.group_no_one"/>
+                    </group>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<record id="action_un_box" model="ir.actions.act_window">
+    <field name="name">UN Boxes</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">un.box</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            Create new UN Box
+        </p>
+    </field>
+</record>
+
+<record id="action_un_box_draft" model="ir.actions.server">
+    <field name="name">Box: Reset to Draft</field>
+    <field name="model_id" ref="un_help.model_un_box"/>
+    <field name="binding_model_id" ref="un_help.model_un_box"/>
+    <field name="binding_view_types">list,form</field>
+    <field name="state">code</field>
+    <field name="code">records.button_draft()</field>
+</record>
+
+<record id="action_un_box_to_consume" model="ir.actions.server">
+    <field name="name">Box: To Consume</field>
+    <field name="model_id" ref="un_help.model_un_box"/>
+    <field name="binding_model_id" ref="un_help.model_un_box"/>
+    <field name="binding_view_types">list,form</field>
+    <field name="state">code</field>
+    <field name="code">records.button_to_consume()</field>
+</record>
+
+<record id="action_un_box_use" model="ir.actions.server">
+    <field name="name">Box: Use</field>
+    <field name="model_id" ref="un_help.model_un_box"/>
+    <field name="binding_model_id" ref="un_help.model_un_box"/>
+    <field name="binding_view_types">list,form</field>
+    <field name="state">code</field>
+    <field name="code">records.button_use()</field>
+</record>
+
+<record id="action_un_box_scrap" model="ir.actions.server">
+    <field name="name">Box: Scrap</field>
+    <field name="model_id" ref="un_help.model_un_box"/>
+    <field name="binding_model_id" ref="un_help.model_un_box"/>
+    <field name="binding_view_types">list,form</field>
+    <field name="state">code</field>
+    <field name="code">records.button_scrap()</field>
+</record>
+
+<menuitem id="un_box_menu"
+          name="UN Boxes"
+          parent="contacts.res_partner_menu_contacts"
+          action="action_un_box"
+          groups="un_help.un_box_group"
+          sequence="10"/>
+</odoo>

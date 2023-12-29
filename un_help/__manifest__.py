@@ -1,0 +1,22 @@
+{
+    'name': 'UN Help',
+    'summary': 'Humanitarian aid audit',
+    'author': 'Nikita Borovik',
+    'support': 'nick.borovik@gmail.com',
+    'license': 'LGPL-3',
+    'version': '15.0.1.6',
+    'category': 'Sales/CRM',
+    'depends': ['contacts', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/un_help_groups.xml',
+        'views/res_partner_views.xml',
+        'views/res_config_settings_views.xml',
+        'views/un_help_views.xml',
+        'views/un_box_views.xml',
+        'wizard/receive_un_box_views.xml',
+    ],
+    'auto_install': False,
+    'installable': True,
+    'application': True,
+}

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_un_help_tree" model="ir.ui.view">
+        <field name="name">un.help.tree</field>
+        <field name="model">un.help</field>
+        <field eval="8" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="UN Help" sample="1" multi_edit="1">
+                <field name="name"/>
+                <field name="date_received"/>
+                <field name="partner_id"/>
+                <field name="sex"/>
+                <field name="age"/>
+                <field name="social_status"/>
+                <field name="family_members_count"/>
+                <field name="company_id" optional="hide"/>
+                <field name="color" optional="hide"/>
+                <field name="note" optional="hide"/>
+                <field name="create_date" optional="show"/>
+                <field name="create_uid" optional="show"/>
+                <field name="un_box_id" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_un_help_form" model="ir.ui.view">
+        <field name="name">un.help.form</field>
+        <field name="model">un.help</field>
+        <field eval="8" name="priority"/>
+        <field name="arch" type="xml">
+            <form string="UN Help">
+                <sheet>
+                    <h1>
+                        <field class="o_text_overflow" name="name" default_focus="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="date_received"/>
+                            <field name="partner_id"/>
+                            <field name="color"/>
+                            <field name="note"/>
+                            <field name="company_id" groups="base.group_no_one"/>
+                        </group>
+                        <group>
+                            <field name="sex"/>
+                            <field name="age"/>
+                            <field name="social_status"/>
+                            <field name="family_members_count"/>
+                        </group>
+                        <group>
+                            <field name="un_box_id" groups="un_help.un_box_group" domain="[('state', '=', 'to_consume')]"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_un_help_kanban" model="ir.ui.view">
+        <field name="name">un.help.kanban</field>
+        <field name="model">un.help</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="name"/>
+                <field name="date_received"/>
+                <field name="partner_id"/>
+                <field name="color"/>
+                <field name="create_uid"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                            <div class="oe_kanban_details d-flex flex-column">
+                                <strong class="o_kanban_record_title oe_partner_heading"><field name="name"/></strong>
+                                <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                <ul>
+                                    <li><field name="partner_id"/></li>
+                                    <li><field name="date_received"/></li>
+                                    <li><field name="create_uid"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_un_help_search" model="ir.ui.view">
+        <field name="name">un.help.search</field>
+        <field name="model">un.help</field>
+        <field name="arch" type="xml">
+            <search string="Search Un Help">
+                <field name="partner_id" filter_domain="[('partner_id.name', 'ilike', self)]"/>
+                <field name="create_uid" filter_domain="[('create_uid.name', 'ilike', self)]"/>
+                <separator/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="create_uid" string="Created By" context="{'group_by' : 'create_uid'}" />
+                    <filter name="date_received" string="Date Received" context="{'group_by': 'date_received'}"/>
+                    <filter name="partner_id" string="Partner" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_un_help" model="ir.actions.act_window">
+        <field name="name">UN Helps</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">un.help</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new UN Help
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="un_help_menu"
+              name="UN Helps"
+              parent="contacts.res_partner_menu_contacts"
+              action="action_un_help"
+              groups="un_help.un_help_group"
+              sequence="9"/>
+</odoo>

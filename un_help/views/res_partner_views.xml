@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_partner_tree" model="ir.ui.view">
+    <field name="name">res.partner.tree</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='display_name']" position="before">
+            <header>
+                <button name="action_receive_un_help" type="object" string="Recieve UN Help"/>
+            </header>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_partner_form" model="ir.ui.view">
+    <field name="name">res.partner.form.un.help</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@name='button_box']" position="inside">
+            <button name="action_receive_un_help"
+                type="object"
+                class="oe_stat_button"
+                icon="fa-archive icon"
+                help="Receive UN Help"
+                string="Recieve UN Help"
+                attrs="{'invisible': [('type', '!=', 'un_contact')]}"/>
+        </xpath>
+
+        <xpath expr="//div[hasclass('oe_title')][hasclass('mb24')]" position="attributes">
+            <attribute name="class" remove="mb24" separator=" "/>
+        </xpath>
+
+        <xpath expr="//span[@name='address_name']/parent::group" position="after">
+            <group attrs="{'invisible': [('type', '!=', 'un_contact')]}">
+                <field name="sex"/>
+                <field name="age"/>
+            </group>
+            <group attrs="{'invisible': [('type', '!=', 'un_contact')]}">
+                <field name="social_status"/>
+                <field name="family_members_count"/>
+                <field name="type"/>
+            </group>
+        </xpath>
+
+        <xpath expr="//field[@name='company_type']" position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '=', 'un_contact')]}</attribute>
+        </xpath>
+
+        <xpath expr="//field[@name='parent_id']/parent::div" position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '=', 'un_contact')]}</attribute>
+        </xpath>
+
+        <xpath expr="//span[@name='address_name']/parent::group" position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '=', 'un_contact')]}</attribute>
+        </xpath>
+
+        <xpath expr="//field[@name='function']/parent::group" position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '=', 'un_contact')]}</attribute>
+        </xpath>
+
+        <xpath expr="//page[@name='contact_addresses']" position="attributes">
+            <attribute name="autofocus"></attribute>
+            <attribute name="t-att-autofocus">'autofocus' if type == 'un_contact'</attribute>
+        </xpath>
+
+        <xpath expr="//page[@name='contact_addresses']" position="before">
+            <page string="UN Help" name="un_help_page" autofocus="autofocus" attrs="{'invisible': [('type', '!=', 'un_contact')]}">
+                <field name="un_help_ids" context="{'default_partner_id': id}">
+                    <tree editable="bottom" create="0" options="{'no_open': True, 'no_create': True}" default_order="date_received asc, sequence asc, name asc, id asc">
+                        <field name="sequence" widget="handle"/>
+                        <field name="name"/>
+                        <field name="date_received"/>
+                        <field name="note"/>
+                        <field name="un_box_id" groups="un_help.un_box_group" domain="[('state', '=', 'to_consume')]"/>
+                    </tree>
+                </field>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+<record id="res_partner_kanban_view" model="ir.ui.view">
+    <field name="name">res.partner.kanban.un.help</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='type']" position="after">
+            <field name="un_help_ids"/>
+            <field name="age"/>
+            <field name="social_status"/>
+        </xpath>
+
+        <xpath expr="//field[@name='activity_ids']" position="attributes">
+            <attribute name="attrs">{'invisible': [('type', '=', 'un_contact')]}</attribute>
+        </xpath>
+
+        <xpath expr="//t[@t-if='!record.is_company.raw_value']" position="attributes">
+            <attribute name="t-if">!record.is_company.raw_value &amp;&amp; record.type.raw_value != 'un_contact'</attribute>
+        </xpath>
+
+        <xpath expr="//t[@t-else='']" position="replace">
+            <t t-elif="record.type.raw_value != 'un_contact'">
+                <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('res.partner', 'avatar_128', record.id.raw_value)})" role="img"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//strong[hasclass('oe_partner_heading')]/field" position="after">
+            <t t-if="record.type.raw_value == 'un_contact'">
+                <span>/</span>
+                <field name="age"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//span[hasclass('oe_kanban_partner_links')]" position="after">
+            <div class="mb-1" attrs="{'invisible': [('type', '!=', 'un_contact')]}">
+                <field name="social_status"/>
+            </div>
+            <div>
+                <field name="un_help_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//span[hasclass('oe_kanban_partner_links')]/parent::div" position="after">
+            <div class="o_row mt-auto text-right" attrs="{'invisible': [('type', '!=', 'un_contact')]}">
+                <field name="un_help_received" invisible="1"/>
+                <button name="action_receive_un_help"
+                        type="object"
+                        class="btn btn-info btn-sm"
+                        string="Recieve UN Help"
+                        attrs="{'invisible': [('un_help_received', '=', True)]}">Recieve UN Help
+                </button>
+            </div>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_res_partner_filter" model="ir.ui.view">
+    <field name="name">res.partner.select.un.help</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="arch" type="xml">
+        <xpath expr="//filter[@name='type_company']" position="after">
+            <filter string="UN Contact" name="type_un_contact" domain="[('type', '=', 'un_contact')]"/>
+        </xpath>
+    </field>
+</record>
+
+<!-- Temporary no need in this feature -->
+<!-- <record id="contacts.action_contacts" model="ir.actions.act_window">
+    <field name="context">{'default_is_company': False, 'search_default_type_un_contact': 1}</field>
+</record> -->
+
+<record id="action_receive_un_help" model="ir.actions.server">
+    <field name="name">Recieve UN Help</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="binding_model_id" ref="base.model_res_partner"/>
+    <field name="binding_view_types">list,form</field>
+    <field name="state">code</field>
+    <field name="code">records.action_receive_un_help()</field>
+</record>
+
+</odoo>

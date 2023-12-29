@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="un_help_group" model="res.groups">
+        <field name="name">UN Help</field>
+    </record>
+    <record id="un_box_group" model="res.groups">
+        <field name="name">UN Box</field>
+    </record>
+</odoo>
